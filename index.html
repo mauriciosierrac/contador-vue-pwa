@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!--metadata para PWA
+name= theme-color, pinta la barra de estado de un color en la parte superior (android)-->
+    <meta name="theme-color" content="#41b883" />
+    <!--metadata para PWA
+name= apple-mobile-app-capable, permite modificar barra de estado en la parte superior (IOS)-->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+
+    <!-- optimizaciones de SEO, para que los robots de google sepan q son optimas para pwa-->
+    <meta name="MobileOptimized" content="width" />
+    <meta name="HandheldFriendly" content="true" />
+
+    <title>Contador App</title>
+
+    <!-- iconos -->
+    <!-- el favicon debe ser extension .icon pero con type= image/png acepta png -->
+    <link rel="shortcut icon" href="./img/favicon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="./img/favicon.png" />
+    <link rel="apple-touch-startup-image" href="./img/favicon.png" />
+
+    <!-- manifiesto json-->
+    <link rel="manifest" href="./manifest.json" />
+
+
+    <!-- Hojas de estilos-->
+    <!-- https://necolas.github.io/normalize.css/ es una url para normalizar todos los estilos css, que sean standar en 
+    todos los navegadores-->
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/" />
+    <link href="./css/style.css" rel="stylesheet" />
+    <script src="https://unpkg.com/vue@next"></script>
+  </head>
+  <body>
+    <div id="app" class="app">
+      <h1 class="title">{{title}}</h1>
+      <hr />
+      <h3 class="count">{{count}}</h3>
+      <hr />
+      <div>
+        <!-- dos formas diferentes de llamar un evento en Vue-->
+        <button v-on:click="modCount('dis')">-1</button>
+        <button @click="modCount('add')">+1</button>
+        <!-- dos formas diferentes de llamar un evento en Vue
+            <button v-on:click="disCount" >-1</button>
+            <button @click="addCount" >+1</button>
+        -->
+      </div>
+    </div>
+
+    <script src="./js/load.js"></script>
+
+    <script src="./js/main.js"></script>
+    <script src="./js/mountApp.js"></script>
+  </body>
+</html>
